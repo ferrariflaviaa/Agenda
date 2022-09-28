@@ -24,8 +24,8 @@ include_once("templates/header.php");
             <td><?= $contacts["name"] ?></td>
             <td><?= $contacts["phone"] ?></td>
             <td class="actions">
-              <a href="<?= $BASE_URL ?>show.php?id=<?= $contact['id'] ?>"><i class="fas fa-eye check-icon"></i></a>
-              <a href="<?= $BASE_URL ?>edit.php?id=<?= $contact['id'] ?>"><i class="far fa-edit edit-icon"></i></a>
+              <a href="<?= $BASE_URL ?>show.php?id=<?= $contacts['id'] ?>"><i class="fas fa-eye check-icon"></i></a>
+              <a href="<?= $BASE_URL ?>edit.php?id=<?= $contacts['id'] ?>"><i class="far fa-edit edit-icon"></i></a>
               <button type="submit"><i class="fas fa-times delete-icon"></i></button>
             </td>
           </tr>

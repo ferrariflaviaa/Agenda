@@ -7,17 +7,19 @@
   $id;
 
   if(!empty($_GET)){
-    $id = $_GET("id");
+    $id = $_GET["id"];
   }
 
   //Retorna dado de um post específico
   if(!empty($id)){
-    $query = "SELECT * FROM contacts WHERE id = : id";
+    $query = "SELECT * FROM contacts WHERE id = :id";
 
     $stmt = $conn->prepare($query);
-    $stmt->bindParam(":id",$id);
+    $stmt->bindParam(":id", $id);
     $stmt->execute();
     $contact = $stmt->fetch();
+
+    
 
   }else{
     //Retorna todos os contatos
@@ -28,7 +30,9 @@
 
     $contacts = $stmt->fetchAll();
   }
+
   $contacts = [];
+
   $query = "SELECT * FROM contacts";
 
   $stmt = $conn -> prepare($query);
