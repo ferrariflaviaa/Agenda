@@ -39,6 +39,3 @@ if (isset($_SESSION['msg'])) {
       </div>
     </nav>
   </header>
-</body>
-
-</html>

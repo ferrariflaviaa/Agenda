@@ -18,18 +18,18 @@ include_once("templates/header.php");
         </tr>
       </thead>
       <tbody>
-        <?php foreach($contacts as $contacts):?>
+        <?php foreach ($contacts as $contacts) : ?>
           <tr>
-            <th scope="row"><?=  $contacts["id"]?></th>
-            <td><?=$contacts["name"]?></td>
-            <td><?=$contacts["phone"]?></td>
+            <th scope="row"><?= $contacts["id"] ?></th>
+            <td><?= $contacts["name"] ?></td>
+            <td><?= $contacts["phone"] ?></td>
             <td class="actions">
-              <a href="<?=$BASE_URL?>show.php? id=<?= $contacts['id']?>"><i class="fas fa-eye check-icon"></i></a>
-              <a href="<?=$BASE_URL?>edit.php? id=<?= $contacts['id']?>"><i class="far fa-edit edit-icon"></i></a>
-              <button type="submit"><i class="fas fa-times delete-icon"></i></button> 
-          </td>
+              <a href="<?= $BASE_URL ?>show.php?id=<?= $contact['id'] ?>"><i class="fas fa-eye check-icon"></i></a>
+              <a href="<?= $BASE_URL ?>edit.php?id=<?= $contact['id'] ?>"><i class="far fa-edit edit-icon"></i></a>
+              <button type="submit"><i class="fas fa-times delete-icon"></i></button>
+            </td>
           </tr>
-          <?php endforeach; ?>
+        <?php endforeach; ?>
       </tbody>
     </table>
   <?php else : ?>
