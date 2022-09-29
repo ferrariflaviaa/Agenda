@@ -7,6 +7,7 @@ include_once("url.php");
 $data = $_POST;
 
 if ((!empty($data))) {
+
   //CRIAR CONTATO:
   if ($data["type"] === "create") {
     $name = $data["name"];
@@ -23,15 +24,16 @@ if ((!empty($data))) {
 
     try {
       $stmt->execute();
-      $_SESSION["msg"] = "Contato adicionado com sucesso!";
+      $_SESSION["msg"] = "Contato criado com sucesso!";
+      
     } catch (PDOException $e) {
       //VERIFICAR ERRO:
       $erro = $e->getMessage();
       echo "Erro: $erro";
     }
   }
+  // Redirect HOME
   header("Location: " . $BASE_URL . "../index.php");
-  
 } else {
 
   $id;
@@ -48,23 +50,18 @@ if ((!empty($data))) {
     $stmt->bindParam(":id", $id);
     $stmt->execute();
     $contact = $stmt->fetch();
+
   } else {
     //Retorna todos os contatos
     $query = "SELECT * FROM contacts";
+
     $stmt = $conn->prepare($query);
 
     $stmt->execute();
 
     $contacts = $stmt->fetchAll();
   }
-
-  $contacts = [];
-
-  $query = "SELECT * FROM contacts";
-
-  $stmt = $conn->prepare($query);
-
-  $stmt->execute();
-
-  $contacts = $stmt->fetchAll();
 }
+
+//FECHAR CONEXÃO:
+$conn = null;
