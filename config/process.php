@@ -6,6 +6,7 @@ include_once("url.php");
 
 $data = $_POST;
 
+// MODIFICAÇÕES NO BANCO
 if ((!empty($data))) {
 
   //CRIAR CONTATO:
@@ -50,7 +51,6 @@ if ((!empty($data))) {
     $stmt->bindParam(":id", $id);
     $stmt->execute();
     $contact = $stmt->fetch();
-
   } else {
     //Retorna todos os contatos
     $query = "SELECT * FROM contacts";
